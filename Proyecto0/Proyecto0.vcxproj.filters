@@ -23,5 +23,8 @@
     <ClInclude Include="DNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DLinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

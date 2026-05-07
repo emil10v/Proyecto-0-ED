@@ -130,6 +130,7 @@
     <ClCompile Include="Proyecto0.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DLinkedList.h" />
     <ClInclude Include="DNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
