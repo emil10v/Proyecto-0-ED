@@ -132,7 +132,9 @@
   <ItemGroup>
     <ClInclude Include="DLinkedList.h" />
     <ClInclude Include="DNode.h" />
+    <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="PriorityQueue.h" />
+    <ClInclude Include="Queue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
