@@ -130,11 +130,18 @@
     <ClCompile Include="Proyecto0.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Area.h" />
+    <ClInclude Include="ArrayList.h" />
     <ClInclude Include="DLinkedList.h" />
     <ClInclude Include="DNode.h" />
+    <ClInclude Include="HeapPriorityQueue.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="MinHeap.h" />
+    <ClInclude Include="Pair.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="Util.h" />
+    <ClInclude Include="Ventanilla.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
