@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Usuario.h"
 #include "Servicio.h"
+#include <stdexcept>
 
 using std::string;
 using std::cout;
@@ -51,6 +52,15 @@ public:
         this->prioridadFinal = 999;
     }
 
+
+    // Setters
+    void setHoraAtencion(time_t hora) {
+        this->horaAtencion = hora;
+    }
+
+    void setCodigo(string codigo) {
+        this->codigo = codigo;
+    }
     // Getters
     string getCodigo() {
         return codigo;
@@ -76,19 +86,18 @@ public:
         return servicio;
     }
 
-    // Setters
-    void setHoraAtencion(time_t hora) {
-        this->horaAtencion = hora;
-    }
-
-    void setCodigo(string codigo) {
-        this->codigo = codigo;
-    }
-
-    // Calcular tiempo de espera
     double getTiempoEspera() {
         if (horaAtencion == 0) {
-            return 0;// cambiar por trhow error
+            throw std::runtime_error("Error: El tiquete no ha sido atendido todavia");
         }
         return difftime(horaAtencion, horaSolicitud);
     }
+    // Mostrar tiquete
+    void mostrar() {
+        cout << "Tiquete: " << codigo;
+        cout << " | Prioridad: " << prioridadFinal;
+        cout << " | Usuario: " << usuario.getDescripcion();
+        cout << " | Servicio: " << servicio.getDescripcion();
+        cout << " | Atendido: " << (horaAtencion != 0 ? "Si" : "No") << endl;
+    }
+};
