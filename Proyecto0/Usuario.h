@@ -1,47 +1,43 @@
 #pragma once
 #include <string>
 #include <iostream>
-using namespace std;
+
+using std::string;
+using std::cout;
+using std::endl;
 
 class Usuario {
 private:
     string descripcion;
-    int prioridad;
+    string prioridad;
 
 public:
-    Usuario() : descripcion(""), prioridad(999) {}//constructor
-    Usuario(const string& desc, int prior) : descripcion(desc), prioridad(prior) {}
-    ~Usuario() {}//destructor
+    // Constructor con parámetros (único constructor)
+    Usuario(string desc, string prior) {
+        this->descripcion = desc;
+        this->prioridad = prior;
+    }
 
-    //setters
-    void setDescripcion(const string& desc) { 
-        descripcion = desc; 
-    }
-    void setPrioridad(int prior) { 
-        prioridad = prior;
-    }
-    //getters
-    string getDescripcion() const { 
+    // Getters
+    string getDescripcion() {
         return descripcion;
     }
-    int getPrioridad() const {
-        return prioridad; 
-    }
-    void mostrar() const {
-        cout << "Usuario: " << descripcion << " | Prioridad: " << prioridad << endl;
+
+    string getPrioridad() {
+        return prioridad;
     }
 
-    //Métodos para asignar la prioridad automaticamente 
-    static Usuario adultoMayor() { 
-        return Usuario("Adulto Mayor", 0); 
+    // Setters
+    void setDescripcion(string desc) {
+        descripcion = desc;
     }
-    static Usuario necesidadesEspeciales() { 
-        return Usuario("Persona con Necesidades Especiales", 0); 
+
+    void setPrioridad(string prior) {
+        prioridad = prior;
     }
-    static Usuario representanteOrganizacional() { 
-        return Usuario("Representante Organizacional", 1); 
+
+    // Mostrar
+    void mostrar() {
+        cout << "Usuario: " << descripcion << " | Prioridad: " << prioridad << endl;
     }
-    static Usuario regular() { 
-        return Usuario("Usuario Regular", 2); 
-    }
-};   
+};

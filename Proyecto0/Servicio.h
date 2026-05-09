@@ -1,60 +1,53 @@
 #pragma once
 #include <string>
 #include <iostream>
-using namespace std;
+
+using std::string;
+using std::cout;
+using std::endl;
 
 class Servicio {
 private:
     string descripcion;
-    int prioridad;      // PS en la fórmula PT = PU * 10 + PS
-    string codigoArea;  // Área donde se atiende (ej: "C", "S", "E")
+    string prioridad;
+    string codigoArea;
 
 public:
-    // Constructor 
-    Servicio() : descripcion(""), prioridad(0), codigoArea("") {} 
-    Servicio(const string& desc, int prior, const string& area)
-        : descripcion(desc), prioridad(prior), codigoArea(area) {
+    Servicio(string desc, string prior, string area) {
+        this->descripcion = desc;
+        this->prioridad = prior;
+        this->codigoArea = area;
     }
 
-    // Destructor
-    ~Servicio() {}
-    // Setters
-    void setDescripcion(const string& desc) {
-        descripcion = desc;
-    }
-    void setPrioridad(int prior) {
-        prioridad = prior;
-    }
-    void setCodigoArea(const string& area) {
-        codigoArea = area;
-    }
-    // Getters
-    string getDescripcion() const {
+    // getters
+    string getDescripcion() {
         return descripcion;
     }
-    int getPrioridad() const {
+
+    string getPrioridad() {
         return prioridad;
     }
-    string getCodigoArea() const {
+
+    string getCodigoArea() {
         return codigoArea;
     }
-    // Mostrar información
-    void mostrar() const {
-        cout << "Servicio: " << descripcion << " | Prioridad: " << prioridad
-            << " | Área: " << codigoArea << endl;
+
+  //setters
+    void setDescripcion(string desc) {
+        descripcion = desc;
     }
 
-    // Métodos estáticos para crear servicios con prioridad automática
-    static Servicio compra() {
-        return Servicio("Comprar boleto", 2, "C");
+    void setPrioridad(string prior) {
+        prioridad = prior;
     }
-    static Servicio cambio() {
-        return Servicio("Cambiar boleto", 3, "C");
+
+    void setCodigoArea(string area) {
+        codigoArea = area;
     }
-    static Servicio informacion() {
-        return Servicio("Solicitar información", 1, "S");
-    }
-    static Servicio reclamo() {
-        return Servicio("Realizar reclamo", 4, "E");
+
+    // Mostrar
+    void mostrar() {
+        cout << "Servicio: " << descripcion << " | Prioridad: " << prioridad
+            << " | Área: " << codigoArea << endl;
     }
 };

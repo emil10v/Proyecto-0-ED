@@ -140,6 +140,8 @@
     <ClInclude Include="Pair.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="Servicio.h" />
+    <ClInclude Include="Usuario.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Ventanilla.h" />
   </ItemGroup>
