@@ -4,14 +4,18 @@
 #include <iostream>
 #include "Usuario.h"
 #include "Servicio.h"
+#include "Util.h"
 #include <stdexcept>
 
 using std::string;
 using std::cout;
 using std::endl;
+using std::to_string;
+using std::runtime_error;
 
 class Tiquete {
 private:
+    int static consecutivo;
     string codigo;
     time_t horaSolicitud;
     time_t horaAtencion;
@@ -19,29 +23,20 @@ private:
     Usuario usuario;
     Servicio servicio;
 
-    // Función manual para convertir string a int
-    int stringToInt(string str) {
-        if (str == "0") return 0;
-        if (str == "1") return 1;
-        if (str == "2") return 2;
-        if (str == "3") return 3;
-        if (str == "4") return 4;
-        return 0;  // Por defecto
-    }
-
 public:
     // Constructor con parámetros
-    Tiquete(string codigo, Usuario user, Servicio serv) {
-        this->codigo = codigo;
+    Tiquete(Usuario user, Servicio serv) {
+        this->codigo = serv.getCodigoArea() + to_string(consecutivo);
+        consecutivo++;  
         this->usuario = user;
         this->servicio = serv;
         this->horaSolicitud = time(0);
         this->horaAtencion = 0;
-
-        // Calcular prioridad usando stringToInt manual
-        int pu = stringToInt(user.getPrioridad());
-        int ps = stringToInt(serv.getPrioridad());
+        // Calcular prioridadFinal 
+        int pu = user.getPrioridad();
+        int ps = serv.getPrioridad();
         this->prioridadFinal = (pu * 10) + ps;
+
     }
 
     // Constructor por defecto
@@ -49,7 +44,7 @@ public:
         this->codigo = "";
         this->horaSolicitud = time(0);
         this->horaAtencion = 0;
-        this->prioridadFinal = 999;
+        this->prioridadFinal = DEFAULT_MAX;
     }
 
 
@@ -88,7 +83,7 @@ public:
 
     double getTiempoEspera() {
         if (horaAtencion == 0) {
-            throw std::runtime_error("Error: El tiquete no ha sido atendido todavia");
+            throw runtime_error("El tiquete no ha sido atendido todavia");
         }
         return difftime(horaAtencion, horaSolicitud);
     }

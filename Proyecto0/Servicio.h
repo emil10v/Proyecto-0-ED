@@ -9,11 +9,11 @@ using std::endl;
 class Servicio {
 private:
     string descripcion;
-    string prioridad;
+    int prioridad;
     string codigoArea;
 
 public:
-    Servicio(string desc, string prior, string area) {
+    Servicio(string desc, int prior, string area) {
         this->descripcion = desc;
         this->prioridad = prior;
         this->codigoArea = area;
@@ -24,7 +24,7 @@ public:
         return descripcion;
     }
 
-    string getPrioridad() {
+    int getPrioridad() {
         return prioridad;
     }
 
@@ -37,7 +37,7 @@ public:
         descripcion = desc;
     }
 
-    void setPrioridad(string prior) {
+    void setPrioridad(int prior) {
         prioridad = prior;
     }
 

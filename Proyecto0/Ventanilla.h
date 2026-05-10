@@ -24,9 +24,9 @@ public:
         this->atendido = nullptr;
         this->cantAtendidos = 0;
     }
-
-
-
+    ~Ventanilla() {
+        delete atendido;
+    }
     // Getters
     Tiquete* getAtendido() {
         return atendido;
@@ -38,6 +38,9 @@ public:
 
     string getNombre() {
         return nombre;
+    }
+    bool estaLibre() {
+        return atendido == nullptr;
     }
 
     // Setters
@@ -52,7 +55,7 @@ public:
     // Mostrar
     void mostrar() {
         cout << "Ventanilla: " << nombre;
-        if (atendido != nullptr) {
+        if (!estaLibre()) {
             cout << " | Atendiendo: " << atendido->getCodigo();
         }
         else {

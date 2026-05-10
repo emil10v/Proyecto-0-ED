@@ -1,5 +1,6 @@
-// Proyecto0.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include "Tiquete.h"
+
+int Tiquete::consecutivo = 100;
 
 #include <iostream>
 
