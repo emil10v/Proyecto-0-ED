@@ -45,11 +45,13 @@ void menuAdmin() {
     cout << "1. Agregar usuario" << endl;
     cout << "2. Agregar area" << endl;
     cout << "3. Agregar servicio" << endl;
-    cout << "4. Eliminar area" << endl;
-    cout << "5. Cambiar cantidad ventanillas" << endl;
-    cout << "6. Mostrar usuarios" << endl;
-    cout << "7. Mostrar areas" << endl;
-    cout << "8. Mostrar servicios" << endl;
+    cout << "4. Eliminar Usuario" << endl;
+    cout << "5. Eliminar area" << endl;
+    cout << "6. Eliminar Servicio" << endl;
+    cout << "7. Cambiar cantidad ventanillas" << endl;
+    cout << "8. Mostrar usuarios" << endl;
+    cout << "9. Mostrar areas" << endl;
+    cout << "10. Mostrar servicios" << endl;
     cout << "0. Volver" << endl;
     cout << "Opcion > ";
 }
@@ -165,6 +167,15 @@ int main() {
                             cout << "Servicio agregado." << endl;
                         }
                         else if (opAdmin == "4") {
+                            string usuario;
+                            cout << "\nUSUARIOS DISPONIBLES\n";
+                            cout << sistema.mostrarUsuarios() << endl;
+                            cout << "Usuario a eliminar > ";
+                            getline(cin, usuario);
+                            sistema.eliminarUsuario(usuario);
+                            cout << "Usuario eliminado correctamente." << endl;
+                        }
+                        else if (opAdmin == "5") {
                             string codArea;
                             cout << sistema.mostrarAreas() << endl;
                             cout << "Codigo area eliminar > ";
@@ -192,7 +203,16 @@ int main() {
                             }
                             delete lista;
                         }
-                        else if (opAdmin == "5") {
+                        else if (opAdmin == "6") {
+                            string servicio;
+                            cout << "----SERVICIOS DISPONIBLES----" << endl;
+                            cout << sistema.mostrarServicios() << endl;
+                            cout << "Servicio a eliminar > ";
+                            getline(cin, servicio);
+                            sistema.eliminarServicio(servicio);
+                            cout << "Servicio eliminado correctamente." << endl;
+                        }
+                        else if (opAdmin == "7") {
                             string codArea;
                             string temp;
                             int cant;
@@ -209,13 +229,14 @@ int main() {
                             sistema.setVentanillas(codArea, cant);
                             cout << "Cantidad actualizada." << endl;
                         }
-                        else if (opAdmin == "6") {
+                        else if (opAdmin == "8") {
                             cout << sistema.mostrarUsuarios() << endl;
                         }
-                        else if (opAdmin == "7") {
+                        else if (opAdmin == "9") {
                             cout << sistema.mostrarAreas() << endl;
                         }
-                        else if (opAdmin == "8") {
+                        else if (opAdmin == "10") {
+                            cout << "---- SERVICIOS DISPONIBLES ----" << endl;
                             cout << sistema.mostrarServicios() << endl;
                         }
                         else if (opAdmin != "0")

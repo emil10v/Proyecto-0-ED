@@ -144,7 +144,6 @@ public:
     // 3. atender
     void atenderTiquete(string codArea, int numVentanilla) {
         Area* a = getArea(codArea);
-        cout << a->mostrarVentanillas() << "\n";
         a->atenderTiquete(numVentanilla);
     }
     //4. liberar ventanilla
@@ -197,7 +196,7 @@ public:
                 i++;
             }
         }
-        // eliminar area
+        // eliminar areas asociadas
         areas->goToStart();
         for (int i = 0; i < areas->getSize(); i++) {
             if (areas->getElement() == a) {
@@ -207,6 +206,20 @@ public:
             }
             areas->next();
         }
+    }
+    void eliminarServicio(string descripcion) {
+        servicios->goToStart();
+        for (int i = 0; i < servicios->getSize(); i++) {
+            Servicio* s = servicios->getElement();
+            if (s->getDescripcion() == descripcion) {
+                servicios->remove();
+                delete s;
+                clearColasTiquetes();
+                return;
+            }
+            servicios->next();
+        }
+        throw runtime_error("Servicio no encontrado.");
     }
     void setVentanillas(string codArea, int cantidad) {
         Area* area = getArea(codArea);
