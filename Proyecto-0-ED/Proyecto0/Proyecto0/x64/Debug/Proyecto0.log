@@ -1,0 +1,39 @@
+﻿  Proyecto0.cpp
+C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Area.h(63,26): error C2039: "getPrioridadFinal": no es un miembro de "Tiquete"
+  (compilando archivo de origen "Proyecto0.cpp")
+      C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Tiquete.h(12,7):
+      vea la declaración de 'Tiquete'
+  
+C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Area.h(63,13): error C2660: 'PriorityQueue<Tiquete *>::insert': la función no acepta 1 argumentos
+  (compilando archivo de origen "Proyecto0.cpp")
+      C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\PriorityQueue.h(9,15):
+      vea la declaración de 'PriorityQueue<Tiquete *>::insert'
+      C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Area.h(63,13):
+      al hacer coincidir la lista de argumentos '(Tiquete *)'
+  
+C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Area.h(78,6): error C2039: "setHoraAtencion": no es un miembro de "Tiquete"
+  (compilando archivo de origen "Proyecto0.cpp")
+      C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Tiquete.h(12,7):
+      vea la declaración de 'Tiquete'
+  
+C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Area.h(138,39): error C2039: "getPrioridadFinal": no es un miembro de "Tiquete"
+  (compilando archivo de origen "Proyecto0.cpp")
+      C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Tiquete.h(12,7):
+      vea la declaración de 'Tiquete'
+  
+C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Area.h(138,14): error C2660: 'PriorityQueue<Tiquete *>::insert': la función no acepta 1 argumentos
+  (compilando archivo de origen "Proyecto0.cpp")
+      C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\PriorityQueue.h(9,15):
+      vea la declaración de 'PriorityQueue<Tiquete *>::insert'
+      C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Area.h(138,14):
+      al hacer coincidir la lista de argumentos '(Tiquete *)'
+  
+C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Controladora.h(120,33): error C2661: 'Tiquete::Tiquete': ninguna función sobrecargada acepta 2 argumentos
+  (compilando archivo de origen "Proyecto0.cpp")
+      C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Controladora.h(120,33):
+      al hacer coincidir la lista de argumentos '(Usuario *, Servicio *)'
+  
+C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Proyecto0.cpp(5,14): error C2039: "consecutivo": no es un miembro de "Tiquete"
+      C:\Users\villa\source\repos\Proyecto-0-ED\Proyecto0\Tiquete.h(12,7):
+      vea la declaración de 'Tiquete'
+  
