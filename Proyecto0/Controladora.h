@@ -1,5 +1,6 @@
-#pragma once
 
+
+#pragma once
 #include "LinkedList.h"
 #include "Area.h"
 #include "Servicio.h"
@@ -24,20 +25,17 @@ public:
     }
     ~Controladora() {
         areas->goToStart();
-        for (int i = 0; i < areas->getSize(); i++) {
-            delete areas->getElement();
-            areas->next();
+        while (areas->getSize() > 0) {
+            delete areas->remove();
         }
         servicios->goToStart();
-        for (int i = 0; i < servicios->getSize(); i++) {
-            delete servicios->getElement();
-            servicios->next();
+        while (servicios->getSize() > 0) {
+            delete servicios->remove();
         }
 		usuarios->goToStart();
-        for (int i = 0; i < usuarios->getSize(); i++) {
-            delete usuarios->getElement();
-            usuarios->next();
-		}
+        while (usuarios->getSize() > 0) {
+            delete usuarios->remove();
+        }
         delete areas;
         delete servicios;
         delete usuarios;
