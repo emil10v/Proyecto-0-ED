@@ -11,11 +11,13 @@ class Usuario {
 private:
     string descripcion;
     int prioridad;
+    int tiquetesEmitidos;
 
 public:
     Usuario(string desc, int prior) {
         this->descripcion = desc;
         this->prioridad = prior;
+        this->tiquetesEmitidos = 0;
     }
     Usuario() {
         this->descripcion = "";
@@ -42,6 +44,13 @@ public:
 
     // Mostrar
     void mostrar() {
-        cout << "Usuario: " << descripcion << " | Prioridad: " << prioridad << endl;
+        cout << "Usuario: " << descripcion << endl;
+    }
+
+    void aumentarTiquetes() {
+        tiquetesEmitidos++;
+    }
+    int getTiquetesEmitidos() {
+        return tiquetesEmitidos;
     }
 };

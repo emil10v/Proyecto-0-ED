@@ -22,7 +22,7 @@ private:
 	//atributos para estadisticas
 	int tiquetesDispensados = 0;
 	int tiquetesAtendidos = 0;
-	time_t tiempoEsperaTotal = 0;
+	double tiempoEsperaTotal = 0;
 
 public:
 	Area(string codigoArea, string descripcionArea, int cantVentanillas) {
@@ -66,7 +66,7 @@ public:
 	void atenderTiquete(int numVentanilla) {
 		if (tiquetes->isEmpty())
 			throw runtime_error("No hay tiquetes por atender.");
-		if (numVentanilla < 0 || numVentanilla > cantVentanillas)
+		if (numVentanilla < 0 || numVentanilla >= cantVentanillas)
 			throw runtime_error("Numero de ventanilla invalido");
 		ventanillas->goToPos(numVentanilla);
 		Ventanilla* v = ventanillas->getElement();
@@ -94,14 +94,35 @@ public:
 			ventanillas->append(new Ventanilla(codigoArea + to_string(i + 1)));
 		}
 	}
-	long getTiempoEsperaTotal() {
-		return tiempoEsperaTotal;
+	List<Ventanilla*>* getVentanillas() {
+		return ventanillas;
 	}
 	string getCodigoArea() {
 		return codigoArea;
 	}
 	int getCantVentanillas() {
 		return cantVentanillas;
+	}
+	double getPromedioEspera() {
+		if (tiquetesAtendidos == 0)
+			return 0;
+		return (double)tiempoEsperaTotal / tiquetesAtendidos;
+	}
+	int getTiquetesDispensados() {
+		return tiquetesDispensados;
+	}
+	int getTiquetesAtendidos() {
+		return tiquetesAtendidos;
+	}
+	void liberarVentanilla(int numVenanilla) {
+		if (numVenanilla < 0 || numVenanilla >= cantVentanillas)
+			throw runtime_error("Numero de ventanilla invalido");
+		ventanillas->goToPos(numVenanilla);
+		Ventanilla* v = ventanillas->getElement();
+		if (v->estaLibre())
+			throw runtime_error("Ventanilla ya esta libre");
+		delete v->getAtendido();
+		v->liberar();
 	}
 	string getColaTiquetes() {
 		if (tiquetes->isEmpty()) return "[]";

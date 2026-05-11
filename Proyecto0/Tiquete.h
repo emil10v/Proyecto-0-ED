@@ -15,7 +15,7 @@ using std::runtime_error;
 
 class Tiquete {
 private:
-    int static consecutivo;
+    static int consecutivo;
     string codigo;
     time_t horaSolicitud;
     time_t horaAtencion;

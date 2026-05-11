@@ -12,17 +12,22 @@ private:
     string descripcion;
     int prioridad;
     string codigoArea;
+    int tiquetesSolicitados;
         
 public:
     Servicio(string desc, int prior, string areaServ) {
         this->descripcion = desc;
         this->prioridad = prior;
 		this->codigoArea = areaServ;
+        this->tiquetesSolicitados = 0;
     }
     Servicio() {
         this->descripcion = "";
 		this->prioridad = DEFAULT_MAX;
         this->codigoArea = "";
+    }
+    void aumentarSolicitados() {
+        tiquetesSolicitados++;
     }
     // getters
     string getDescripcion() {
@@ -34,6 +39,10 @@ public:
     }
     string getCodigoArea() {
         return codigoArea;
+    }
+
+    int getTiquetesSolicitados() {
+        return tiquetesSolicitados;
     }
 
   //setters

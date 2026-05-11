@@ -46,9 +46,12 @@ public:
         this->nombre = nombre;
     }
     // Atender un tiquete
-    void atender(Tiquete* t) {
-        this->atendido = t;
-        this->cantAtendidos++;
+    void atender(Tiquete* atendido) {
+        this->atendido = atendido;
+		cantAtendidos++;
+    }
+    void liberar() {
+        atendido = nullptr;
     }
     // Mostrar
     string mostrar() {
