@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "Util.h"
 
 using std::string;
 using std::cout;
@@ -9,13 +10,18 @@ using std::endl;
 class Usuario {
 private:
     string descripcion;
-    string prioridad;
+    int prioridad;
+    int tiquetesEmitidos;
 
 public:
-    // Constructor con parámetros (único constructor)
-    Usuario(string desc, string prior) {
+    Usuario(string desc, int prior) {
         this->descripcion = desc;
         this->prioridad = prior;
+        this->tiquetesEmitidos = 0;
+    }
+    Usuario() {
+        this->descripcion = "";
+        this->prioridad = DEFAULT_MAX;
     }
 
     // Getters
@@ -23,7 +29,7 @@ public:
         return descripcion;
     }
 
-    string getPrioridad() {
+    int getPrioridad() {
         return prioridad;
     }
 
@@ -32,12 +38,19 @@ public:
         descripcion = desc;
     }
 
-    void setPrioridad(string prior) {
+    void setPrioridad(int prior) {
         prioridad = prior;
     }
 
     // Mostrar
     void mostrar() {
-        cout << "Usuario: " << descripcion << " | Prioridad: " << prioridad << endl;
+        cout << "Usuario: " << descripcion << endl;
+    }
+
+    void aumentarTiquetes() {
+        tiquetesEmitidos++;
+    }
+    int getTiquetesEmitidos() {
+        return tiquetesEmitidos;
     }
 };

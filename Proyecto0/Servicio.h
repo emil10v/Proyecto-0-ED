@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "Area.h"
 
 using std::string;
 using std::cout;
@@ -9,27 +10,39 @@ using std::endl;
 class Servicio {
 private:
     string descripcion;
-    string prioridad;
+    int prioridad;
     string codigoArea;
-
+    int tiquetesSolicitados;
+        
 public:
-    Servicio(string desc, string prior, string area) {
+    Servicio(string desc, int prior, string areaServ) {
         this->descripcion = desc;
         this->prioridad = prior;
-        this->codigoArea = area;
+		this->codigoArea = areaServ;
+        this->tiquetesSolicitados = 0;
     }
-
+    Servicio() {
+        this->descripcion = "";
+		this->prioridad = DEFAULT_MAX;
+        this->codigoArea = "";
+    }
+    void aumentarSolicitados() {
+        tiquetesSolicitados++;
+    }
     // getters
     string getDescripcion() {
         return descripcion;
     }
 
-    string getPrioridad() {
+    int getPrioridad() {
         return prioridad;
     }
-
     string getCodigoArea() {
         return codigoArea;
+    }
+
+    int getTiquetesSolicitados() {
+        return tiquetesSolicitados;
     }
 
   //setters
@@ -37,7 +50,7 @@ public:
         descripcion = desc;
     }
 
-    void setPrioridad(string prior) {
+    void setPrioridad(int prior) {
         prioridad = prior;
     }
 

@@ -2,6 +2,7 @@
 #include "List.h"
 #include <stdexcept>
 #include <iostream>
+#include "Util.h"
 
 using std::runtime_error;
 using std::cout;
