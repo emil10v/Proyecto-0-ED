@@ -1,3 +1,19 @@
+// Archivo: Servicio.h
+// Autores: Isaac y María Celeste
+//
+// Descripción:
+// Clase que representa un servicio ofrecido dentro del sistema.
+// Cada servicio pertenece a un área específica y posee un nivel
+// de prioridad.
+//
+// Funcionalidades principales:
+// - Almacenar información del servicio.
+// - Llevar conteo de tiquetes solicitados.
+// - Obtener y modificar atributos.
+// - Mostrar información del servicio.
+//
+// Los servicios son utilizados al generar tiquetes.
+
 #pragma once
 #include <string>
 #include <iostream>

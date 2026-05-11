@@ -1,5 +1,23 @@
-#pragma once
+// Archivo: Controladora.h
+// Autores: Emilio, Isaac y María Celeste
+//
+// Descripción:
+// Clase principal encargada de administrar toda la lógica del sistema
+// de control de colas prioritarias. La controladora mantiene listas de
+// usuarios, áreas y servicios, y coordina la interacción entre ellas.
+//
+// Funcionalidades principales:
+// - Registrar usuarios, áreas y servicios.
+// - Crear y administrar tiquetes.
+// - Atender y liberar ventanillas.
+// - Mostrar el estado general del sistema.
+// - Eliminar áreas y usuarios.
+// - Generar estadísticas generales del sistema.
+//
+// También esta clase se encarga de liberar correctamente la memoria
+// dinámica utilizada por las listas y objetos almacenados.
 
+#pragma once
 #include "LinkedList.h"
 #include "Area.h"
 #include "Servicio.h"

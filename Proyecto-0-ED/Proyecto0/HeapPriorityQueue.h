@@ -1,3 +1,22 @@
+// Archivo: HeapPriorityQueue.h
+// Autor: Hecho en clase
+//
+// Descripción:
+// Implementación de una cola de prioridad utilizando un MinHeap.
+// Esta clase almacena elementos junto con una prioridad mediante
+// objetos Pair, permitiendo acceder rápidamente al elemento con
+// mayor prioridad (menor valor numérico).
+//
+// Funcionalidades principales:
+// - Insertar elementos con prioridad.
+// - Obtener el elemento de mayor prioridad.
+// - Eliminar el elemento prioritario.
+// - Consultar tamaño y estado de la cola.
+// - Mostrar elementos almacenados.
+//
+// Esta estructura es utilizada en el sistema para administrar
+// los tiquetes pendientes de atención.
+
 #pragma once
 
 #include<stdexcept>

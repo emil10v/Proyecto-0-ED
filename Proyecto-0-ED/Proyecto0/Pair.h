@@ -1,3 +1,17 @@
+// Archivo: Pair.h
+// Autor: Hecho en clase
+//
+// Descripción:
+// Clase genérica que representa un par clave-valor.
+// Incluye operadores de comparación basados en la clave.
+//
+// Funcionalidades principales:
+// - Almacenar pares de datos.
+// - Comparar elementos mediante operadores relacionales.
+// - Mostrar pares mediante sobrecarga de operadores.
+//
+// Esta clase es utilizada junto con estructuras de prioridad
+
 #pragma once
 
 #include <iostream>

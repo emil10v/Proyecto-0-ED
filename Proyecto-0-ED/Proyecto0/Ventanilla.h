@@ -1,3 +1,19 @@
+// Archivo: Ventanilla.h
+// Autores: Isaac y Emilio
+//
+// Descripción:
+// Clase que representa una ventanilla de atención dentro de un área.
+// Cada ventanilla puede atender un único tiquete a la vez.
+//
+// Funcionalidades principales:
+// - Atender tiquetes.
+// - Liberar la ventanilla.
+// - Consultar estado de ocupación.
+// - Llevar conteo de tiquetes atendidos.
+// - Mostrar información de la ventanilla.
+//
+// También libera automáticamente el tiquete atendido al destruirse.
+
 #pragma once
 #include <string>
 #include "ArrayList.h"

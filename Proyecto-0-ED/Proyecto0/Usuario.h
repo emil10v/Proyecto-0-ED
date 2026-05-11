@@ -1,3 +1,19 @@
+// Archivo: Usuario.h
+// Autor: Isaac
+//
+// Descripción:
+// Clase que representa a un usuario del sistema.
+// Cada usuario posee una descripción, prioridad y cantidad
+// de tiquetes emitidos.
+//
+// Funcionalidades principales:
+// - Almacenar información del usuario.
+// - Manejar prioridad de atención.
+// - Llevar conteo de tiquetes emitidos.
+// - Mostrar información del usuario.
+//
+// Los usuarios son necesarios para la generación de tiquetes.
+
 #pragma once
 #include <string>
 #include <iostream>

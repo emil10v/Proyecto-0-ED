@@ -1,3 +1,21 @@
+// Archivo: LinkedList.h
+// Autor: Hecho en clase
+//
+// Descripción:
+// Implementación genérica de una lista enlazada simple utilizando nodos.
+// Permite almacenar elementos dinámicamente sin necesidad de definir
+// un tamaño fijo previamente.
+//
+// Funcionalidades principales:
+// - Insertar y agregar elementos.
+// - Eliminar elementos.
+// - Recorrer la lista mediante referencias.
+// - Consultar posición y tamaño.
+// - Limpiar completamente la lista.
+//
+// Esta estructura es utilizada en el proyecto para almacenar usuarios,
+// áreas y servicios de manera dinámica.
+
 #pragma once
 #include <stdexcept>
 #include <iostream>

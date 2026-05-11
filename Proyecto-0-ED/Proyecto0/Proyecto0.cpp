@@ -1,3 +1,21 @@
+// Archivo: main.cpp
+// Autores: Emilio, Isaac y María Celeste
+//
+// Descripción:
+// Archivo principal del sistema de control de colas prioritarias.
+// Contiene la interfaz de consola y la interacción directa con el usuario.
+//
+// Funcionalidades principales:
+// - Mostrar menús del sistema.
+// - Procesar opciones del usuario.
+// - Crear, atender y liberar tiquetes.
+// - Administrar usuarios, áreas y servicios.
+// - Mostrar estadísticas del sistema.
+// - Manejar errores mediante excepciones.
+//
+// Además, inicializa la clase Controladora, la cual administra
+// toda la lógica interna del sistema.
+
 #include <iostream>
 #include <string>
 #include <stdexcept>

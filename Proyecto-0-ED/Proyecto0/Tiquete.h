@@ -1,3 +1,20 @@
+// Archivo: Tiquete.h
+// Autor: María Celeste
+//
+// Descripción:
+// Clase que representa un tiquete generado por el sistema.
+// Cada tiquete almacena información del usuario, servicio solicitado,
+// prioridad y tiempos de atención.
+//
+// Funcionalidades principales:
+// - Generar códigos consecutivos automáticamente.
+// - Calcular prioridad final del tiquete.
+// - Registrar hora de solicitud y atención.
+// - Calcular tiempo de espera.
+// - Mostrar información del tiquete.
+//
+// Los tiquetes son gestionados mediante colas de prioridad.
+
 #pragma once
 #include <string>
 #include <ctime>

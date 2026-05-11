@@ -1,3 +1,20 @@
+// Archivo: PriorityQueue.h
+// Autor: Hecho en clase
+//
+// Descripción:
+// Interfaz abstracta para una cola de prioridad genérica.
+// Define las operaciones básicas que debe implementar cualquier
+// estructura de cola priorizada.
+//
+// Funcionalidades principales:
+// - Insertar elementos con prioridad.
+// - Obtener y eliminar el elemento de mayor prioridad.
+// - Consultar tamaño y estado.
+// - Limpiar y mostrar elementos.
+//
+// Esta interfaz es implementada por estructuras específicas como
+// HeapPriorityQueue en nuestro caso.
+
 #pragma once
 template <typename E>
 class PriorityQueue {

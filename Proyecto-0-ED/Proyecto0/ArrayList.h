@@ -1,3 +1,21 @@
+// Archivo: ArrayList.h
+// Autor: Hecho en clase
+// Descripción:
+// Implementación genérica de una lista basada en arreglos dinámicos.
+// La lista ofrece operaciones básicas de inserción,
+// eliminación, recorrido y acceso a elementos la cual es 
+// su ventaja si se accede por índices.
+//
+// Funcionalidades principales:
+// - Insertar y agregar elementos.
+// - Eliminar elementos de una posición actual.
+// - Recorrer la lista mediante posiciones.
+// - Obtener y modificar elementos.
+// - Consultar tamaño y estado de la lista.
+//
+// Esta clase sirve como base para almacenar objetos del sistema
+// como ventanillas.
+
 #pragma once
 #include "List.h"
 #include <stdexcept>

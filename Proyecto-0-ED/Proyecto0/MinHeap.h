@@ -1,3 +1,20 @@
+// Archivo: MinHeap.h
+// Autor: Hecho en clase
+//
+// Descripción:
+// Implementación genérica de un MinHeap utilizando
+// arreglos dinámicos. Esta estructura permite mantener elementos ordenados
+// según prioridad, donde el menor valor tiene mayor prioridad.
+//
+// Funcionalidades principales:
+// - Insertar elementos.
+// - Obtener y eliminar el elemento mínimo.
+// - Reordenar automáticamente los elementos.
+// - Consultar tamaño y estado.
+//
+// Es utilizado como base para la cola de prioridad del sistema,
+// permitiendo atender tiquetes según prioridad.
+
 #pragma once
 #include <stdexcept>
 #include <iostream>

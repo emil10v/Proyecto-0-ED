@@ -1,3 +1,22 @@
+//Archivo: Area.h
+// Autores: Emilio
+// Descripción:
+// Esta clase representa un área de atención dentro del sistema de colas.
+// Cada área administra sus propias ventanillas y una cola de tiquetes
+// priorizada mediante un heap de prioridad. Además, se encarga de llevar
+// estadísticas relacionadas con la atención de clientes, como cantidad de
+// tiquetes dispensados, atendidos y tiempo promedio de espera.
+//
+// Funcionalidades principales:
+// - Agregar tiquetes a la cola del área.
+// - Atender tiquetes desde una ventanilla específica.
+// - Liberar ventanillas luego de finalizar una atención.
+// - Administrar dinámicamente la cantidad de ventanillas.
+// - Mostrar el estado de las ventanillas y la cola de tiquetes.
+// - Calcular estadísticas del área.
+//
+// También incluye manejo manual de memoria dinámica para evitar fugas
+// de memoria al destruir ventanillas y tiquetes almacenados.
 #pragma once
 #include "ArrayList.h"
 #include "HeapPriorityQueue.h"
