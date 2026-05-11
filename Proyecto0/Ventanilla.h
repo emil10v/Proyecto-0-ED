@@ -3,7 +3,7 @@
 #include "ArrayList.h"
 #include "Tiquete.h"
 
-using std::string;
+using std::to_string;
 
 class Ventanilla {
 private:
@@ -31,11 +31,9 @@ public:
     Tiquete* getAtendido() {
         return atendido;
     }
-
     int getCantAtendidos() {
         return cantAtendidos;
     }
-
     string getNombre() {
         return nombre;
     }
@@ -53,14 +51,14 @@ public:
         this->cantAtendidos++;
     }
     // Mostrar
-    void mostrar() {
-        cout << "Ventanilla: " << nombre;
+    string mostrar() {
+        string res = "Ventanilla: " + nombre;
         if (!estaLibre()) {
-            cout << " | Atendiendo: " << atendido->getCodigo();
+            res += " | Atendiendo: " + atendido->getCodigo();
         }
         else {
-            cout << " | Libre";
+            res += " | Libre";
         }
-        cout << " | Total atendidos: " << cantAtendidos << endl;
+        return res;
     }
 };

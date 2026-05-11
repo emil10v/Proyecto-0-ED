@@ -13,7 +13,6 @@ private:
     int prioridad;
 
 public:
-    // Constructor con parámetros (único constructor)
     Usuario(string desc, int prior) {
         this->descripcion = desc;
         this->prioridad = prior;

@@ -20,23 +20,22 @@ private:
     time_t horaSolicitud;
     time_t horaAtencion;
     int prioridadFinal;
-    Usuario usuario;
-    Servicio servicio;
+    Usuario* usuario;
+    Servicio* servicio;
 
 public:
     // Constructor con parámetros
-    Tiquete(Usuario user, Servicio serv) {
-        this->codigo = serv.getCodigoArea() + to_string(consecutivo);
+    Tiquete(Usuario* user, Servicio* serv) {
+        this->codigo = serv->getCodigoArea() + to_string(consecutivo);
         consecutivo++;  
         this->usuario = user;
         this->servicio = serv;
         this->horaSolicitud = time(0);
         this->horaAtencion = 0;
         // Calcular prioridadFinal 
-        int pu = user.getPrioridad();
-        int ps = serv.getPrioridad();
+        int pu = user->getPrioridad();
+        int ps = serv->getPrioridad();
         this->prioridadFinal = (pu * 10) + ps;
-
     }
 
     // Constructor por defecto
@@ -73,11 +72,11 @@ public:
         return prioridadFinal;
     }
 
-    Usuario getUsuario() {
+    Usuario* getUsuario() {
         return usuario;
     }
 
-    Servicio getServicio() {
+    Servicio* getServicio() {
         return servicio;
     }
 
@@ -91,8 +90,8 @@ public:
     void mostrar() {
         cout << "Tiquete: " << codigo;
         cout << " | Prioridad: " << prioridadFinal;
-        cout << " | Usuario: " << usuario.getDescripcion();
-        cout << " | Servicio: " << servicio.getDescripcion();
+        cout << " | Usuario: " << usuario->getDescripcion();
+        cout << " | Servicio: " << servicio->getDescripcion();
         cout << " | Atendido: " << (horaAtencion != 0 ? "Si" : "No") << endl;
     }
 };

@@ -65,11 +65,9 @@ public:
 		size = 0;
 	}
 
-
 	bool isEmpty() {
 		return size == 0;
 	}
-
 
 	int getSize() {
 		return size;

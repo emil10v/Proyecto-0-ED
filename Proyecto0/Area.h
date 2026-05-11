@@ -22,12 +22,13 @@ private:
 	//atributos para estadisticas
 	int tiquetesDispensados = 0;
 	int tiquetesAtendidos = 0;
-	time_t tiempoEsperaTotal;
+	time_t tiempoEsperaTotal = 0;
 
 public:
 	Area(string codigoArea, string descripcionArea, int cantVentanillas) {
 		this->codigoArea = codigoArea;
 		this->descripcionArea = descripcionArea;
+		this->cantVentanillas = cantVentanillas;
 		ventanillas = new ArrayList<Ventanilla*>(cantVentanillas);
 		tiquetes = new HeapPriorityQueue<Tiquete*>();
 		for (int i = 0; i < cantVentanillas; i++) {
@@ -46,12 +47,17 @@ public:
 			ventanillas->next();
 		}
 		delete ventanillas;
+		clearTiquetes();
+		delete tiquetes;
+	}
+	void clearTiquetes() {
 		while (!tiquetes->isEmpty()) {
-			Tiquete* t =
-			tiquetes->removeMin();
+			Tiquete* t = tiquetes->removeMin();
 			delete t;
 		}
-		delete tiquetes;
+		tiquetesDispensados = 0;
+		tiquetesAtendidos = 0;
+		tiempoEsperaTotal = 0;
 	}
 	void agregarTiquete(Tiquete* t) {
 		tiquetes->insert(t, t->getPrioridadFinal());
@@ -60,6 +66,8 @@ public:
 	void atenderTiquete(int numVentanilla) {
 		if (tiquetes->isEmpty())
 			throw runtime_error("No hay tiquetes por atender.");
+		if (numVentanilla < 0 || numVentanilla > cantVentanillas)
+			throw runtime_error("Numero de ventanilla invalido");
 		ventanillas->goToPos(numVentanilla);
 		Ventanilla* v = ventanillas->getElement();
 		if (!v->estaLibre())
@@ -73,10 +81,53 @@ public:
 	void setCantVentanillas(int cantidad) {
 		if (cantidad < 0)
 			throw runtime_error("La cantidad de ventanillas no puede ser negativa.");
+		ventanillas->goToStart();
+		for (int i = 0; i < ventanillas->getSize(); ++i) {
+			Ventanilla* v = ventanillas->getElement();
+			delete v;
+			ventanillas->next();
+		}
+		delete ventanillas;
+		cantVentanillas = cantidad;
 		ventanillas = new ArrayList<Ventanilla*>(cantVentanillas);
+		for (int i = 0; i < cantVentanillas; ++i) {
+			ventanillas->append(new Ventanilla(codigoArea + to_string(i + 1)));
+		}
 	}
 	long getTiempoEsperaTotal() {
 		return tiempoEsperaTotal;
+	}
+	string getCodigoArea() {
+		return codigoArea;
+	}
+	int getCantVentanillas() {
+		return cantVentanillas;
+	}
+	string getColaTiquetes() {
+		if (tiquetes->isEmpty()) return "[]";
+		string res = "[";
+		int sizeTiquetes = tiquetes->getSize();
+		Tiquete** temp = new Tiquete* [sizeTiquetes];
+		for (int i = 0; i < sizeTiquetes; i++) {
+			temp[i] = tiquetes->removeMin();
+			res += temp[i]->getCodigo();
+			if (i < sizeTiquetes - 1) res += ", ";
+		}
+		for (int i = 0; i < sizeTiquetes; i++) {
+			tiquetes->insert(temp[i], temp[i]->getPrioridadFinal());
+		}
+		delete[] temp;
+		return res + "]";
+	}
+	string mostrarVentanillas() {
+		string res = "";
+		ventanillas->goToStart();
+		for (int i = 0; i < ventanillas->getSize(); i++) {
+			Ventanilla* v = ventanillas->getElement();
+			res += v->mostrar() + "\n";
+			ventanillas->next();
+		}
+		return res;
 	}
 };
 
