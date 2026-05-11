@@ -1,97 +1,83 @@
 #pragma once
+
 #include <string>
-#include <ctime>
+#include <time.h>
 #include <iostream>
-#include "Usuario.h"
-#include "Servicio.h"
-#include "Util.h"
-#include <stdexcept>
 
 using std::string;
 using std::cout;
 using std::endl;
-using std::to_string;
-using std::runtime_error;
+using std::ostream;
 
 class Tiquete {
 private:
-    static int consecutivo;
     string codigo;
+    int prioridad;       // PT = PU * 10 + PS
+    string codigoArea;
     time_t horaSolicitud;
     time_t horaAtencion;
-    int prioridadFinal;
-    Usuario* usuario;
-    Servicio* servicio;
+    time_t tiempoEspera;
 
 public:
-    // Constructor con parámetros
-    Tiquete(Usuario* user, Servicio* serv) {
-        this->codigo = serv->getCodigoArea() + to_string(consecutivo);
-        consecutivo++;  
-        this->usuario = user;
-        this->servicio = serv;
-        this->horaSolicitud = time(0);
-        this->horaAtencion = 0;
-        // Calcular prioridadFinal 
-        int pu = user->getPrioridad();
-        int ps = serv->getPrioridad();
-        this->prioridadFinal = (pu * 10) + ps;
-    }
-
-    // Constructor por defecto
-    Tiquete() {
-        this->codigo = "";
-        this->horaSolicitud = time(0);
-        this->horaAtencion = 0;
-        this->prioridadFinal = DEFAULT_MAX;
-    }
-
-
-    // Setters
-    void setHoraAtencion(time_t hora) {
-        this->horaAtencion = hora;
-    }
-
-    void setCodigo(string codigo) {
+    Tiquete(string codigo, string codigoArea, int prioridad) {
         this->codigo = codigo;
-    }
-    // Getters
-    string getCodigo() {
-        return codigo;
-    }
-
-    time_t getHoraSolicitud() {
-        return horaSolicitud;
+        this->codigoArea = codigoArea;
+        this->prioridad = prioridad;
+        horaSolicitud = time(0);
+        horaAtencion = 0;
+        tiempoEspera = 0;
     }
 
-    time_t getHoraAtencion() {
-        return horaAtencion;
+    Tiquete() {
+        prioridad = 0;
+        horaSolicitud = 0;
+        horaAtencion = 0;
+        tiempoEspera = 0;
     }
 
-    int getPrioridadFinal() {
-        return prioridadFinal;
+    void atender() {
+        horaAtencion = time(0);
+        tiempoEspera = horaAtencion - horaSolicitud;
     }
 
-    Usuario* getUsuario() {
-        return usuario;
-    }
+    string getCodigo()        const { return codigo; }
+    string getCodigoArea()    const { return codigoArea; }
+    int    getPrioridad()     const { return prioridad; }
+    time_t getTiempoEspera()  const { return tiempoEspera; }
+    time_t getHoraSolicitud() const { return horaSolicitud; }
 
-    Servicio* getServicio() {
-        return servicio;
-    }
+    void print() const {
+        cout << "Codigo:    " << codigo << endl;
+        cout << "Area:      " << codigoArea << endl;
+        cout << "Prioridad: " << prioridad << endl;
 
-    double getTiempoEspera() {
-        if (horaAtencion == 0) {
-            throw runtime_error("El tiquete no ha sido atendido todavia");
+      
+        struct tm info;
+        localtime_s(&info, &horaSolicitud);
+        cout << "Solicitud: ";
+        cout << (info.tm_year + 1900) << "-";
+        cout << (info.tm_mon + 1) << "-";
+        cout << info.tm_mday << " ";
+        cout << info.tm_hour << ":";
+        cout << info.tm_min << ":";
+        cout << info.tm_sec << endl;
+
+        if (horaAtencion != 0) {
+            struct tm info2;
+            localtime_s(&info2, &horaAtencion);
+            cout << "Atendido:  ";
+            cout << (info2.tm_year + 1900) << "-";
+            cout << (info2.tm_mon + 1) << "-";
+            cout << info2.tm_mday << " ";
+            cout << info2.tm_hour << ":";
+            cout << info2.tm_min << ":";
+            cout << info2.tm_sec << endl;
+            cout << "Espera:    " << tiempoEspera << " s" << endl;
         }
-        return difftime(horaAtencion, horaSolicitud);
     }
-    // Mostrar tiquete
-    void mostrar() {
-        cout << "Tiquete: " << codigo;
-        cout << " | Prioridad: " << prioridadFinal;
-        cout << " | Usuario: " << usuario->getDescripcion();
-        cout << " | Servicio: " << servicio->getDescripcion();
-        cout << " | Atendido: " << (horaAtencion != 0 ? "Si" : "No") << endl;
+
+    friend ostream& operator<<(ostream& os, const Tiquete& t) {
+        os << "(Cod: " << t.codigo << ", Prio: " << t.prioridad << ")";
+        return os;
     }
 };
