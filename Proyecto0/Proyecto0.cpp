@@ -181,6 +181,8 @@ int main() {
                             cout << sistema.mostrarAreas() << endl;
                             cout << "Codigo area > ";
                             getline(cin, codArea);
+                            cout << "---- VENTANILLAS ACTUALES ----";
+                            cout << sistema.mostrarVentanillas(codArea);
                             cout << "Nueva cantidad > ";
                             getline(cin, temp);
                             if (temp.empty())
